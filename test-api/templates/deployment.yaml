@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "test-api.fullname" . }}
+  labels:
+    app: {{ include "test-api.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "test-api.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "test-api.name" . }}
+    spec:
+      containers:
+        - name: {{ include "test-api.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+      imagePullSecrets:
+        - name: ghcr-secret
