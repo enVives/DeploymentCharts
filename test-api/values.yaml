@@ -21,6 +21,11 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+    - backend:
+      service:
+        name: test-api
+        port:
+          number: 3000
 
 imagePullSecrets:
   - name: ghcr-secret
