@@ -21,11 +21,15 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-    - backend:
-      service:
-        name: test-api
-        port:
-          number: 3000
+          backend:
+            service:
+              name: test-api
+              port:
+                number: 3000
+  tls:
+    - hosts:
+        - test-api.dataprovider01.ibtourismdataspace.org
+      secretName: test-api-tls
 
 imagePullSecrets:
   - name: ghcr-secret
