@@ -25,7 +25,7 @@ ingress:
             service:
               name: test-api
               port:
-                number: 443
+                number: 8080
   tls:
     - hosts:
         - test-api.dataprovider01.ibtourismdataspace.org

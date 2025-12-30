@@ -1,0 +1,35 @@
+{
+  "general": {
+    "name": "Test API",
+    "description": "API de prova per demostració Gaia-X, retorna objecte JSON.",
+    "endpoint": "https://test-api.dataprovider01.ibtourismdataspace.org/api/test",
+    "keywords": ["prova", "gaia-x", "json"],
+    "language": "en"
+  },
+  "provider": {
+    "name": "Equip C6",
+    "email": "contacte@exemple.com",
+    "signature": "digital-signature-placeholder"
+  },
+  "dataResource": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "integer"},
+        "name": {"type": "string"},
+        "status": {"type": "string"},
+        "timestamp": {"type": "string"}
+      }
+    },
+    "format": "JSON",
+    "quality": {
+      "completeness": 100,
+      "accuracy": "high",
+      "timeliness": "real-time"
+    },
+    "encryption": "AES-256",
+    "anonymization": "none",
+    "standard": "JSON Schema Draft 2020-12",
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  }
+}

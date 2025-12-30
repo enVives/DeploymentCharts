@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  title: Test API
+  version: 1.0.0
+  description: API de prova per demostració Gaia-X. Retorna un objecte estàtic.
+servers:
+  - url: https://test-api.dataprovider01.ibtourismdataspace.org/api/test
+paths:
+  /api/test:
+    get:
+      summary: Retorna objecte de prova
+      responses:
+        '200':
+          description: Objecte de prova
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  status:
+                    type: string
+                  timestamp:
+                    type: string
+  /api/metadata:
+    get:
+      summary: Retorna metadades de l'API
+      responses:
+        '200':
+          description: Metadades
+          content:
+            application/json:
+              schema:
+                type: object
