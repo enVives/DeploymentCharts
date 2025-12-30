@@ -7,7 +7,7 @@ image:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 443
   targetPort: 8080
 
 ingress:
@@ -26,7 +26,7 @@ ingress:
             service:
               name: test-api
               port:
-                number: 80
+                number: 443
   tls:
     - hosts:
         - "test-api.dataprovider01.ibtourismdataspace.org"
