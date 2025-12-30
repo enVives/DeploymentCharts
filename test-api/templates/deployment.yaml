@@ -3,22 +3,23 @@ kind: Deployment
 metadata:
   name: {{ include "test-api.fullname" . }}
   labels:
-    app: {{ include "test-api.name" . }}
+    {{- include "test-api.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "test-api.name" . }}
+      {{- include "test-api.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ include "test-api.name" . }}
+        {{- include "test-api.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ include "test-api.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - name: http
+              containerPort: 8080
       imagePullSecrets:
         - name: ghcr-secret
