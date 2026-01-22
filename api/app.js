@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send('Test API activa');
 });
 
-app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+app.use('/assets', express.static(path.join(__dirname, 'api/public/assets')));
 
 app.get('/api/test', (req, res) => {
   const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
